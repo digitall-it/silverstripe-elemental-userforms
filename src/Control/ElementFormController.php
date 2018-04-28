@@ -11,11 +11,11 @@ use SilverStripe\UserForms\Form\UserForm;
 
 class ElementFormController extends ElementController
 {
-    private static $allowed_actions = [
+    private static $allowed_actions = array(
         'Form',
         'process',
         'finished'
-    ];
+    );
 
     /**
      * @var UserDefinedFormController
@@ -58,9 +58,9 @@ class ElementFormController extends ElementController
         $controller = Injector::inst()->create($page->getControllerName(), $this->element->getPage());
         $element = $this->element;
 
-        return $controller->customise([
-            'Content' => $element->renderWith($element->getRenderTemplates('_ReceivedFormSubmission')),
-        ]);
+        return $controller->customise(array(
+            'Content' => $element->renderWith($element->getRenderTemplates('_ReceivedFormSubmission'))
+        ));
     }
 
     /**
